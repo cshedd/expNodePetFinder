@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Pets</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--bower:css-->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+    <!--endbower-->
+    <!--bower:js-->
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <!--endbower-->
+    <!--inject:css-->
+    <link rel="stylesheet" href="/css/jTinder.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--endInject-->
+    <!--inject:js-->
+    <script src="/js/api.js"></script>
+    <script src="/js/jquery.jTinder.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.transform2d.js"></script>
+    <script src="/js/main.js"></script>
+    <!--endInject-->
+
+</head>
+
+<body>
+    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <a href="/" class="navbar-brand">Home</a>
+            </div>
+            <nav class="collapse navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav">
+                    <% for (var i=0; i < nav.length; i++){%>
+                        <li>
+                            <a href='<%=nav[i].Link%>'>
+                                <%=nav[i].Text%>
+                            </a>
+                        </li>
+                        <%}%>
+                </ul>
+                <ul class="nav navbar-right navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+                        <ul class="dropdown-menu" style="padding:12px;">
+                            <form class="form-inline">
+                                <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+                            </form>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div id="masthead" class="img-responsive">
+        <div class="container fullPage">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1 class="titlE"><%= title %>
+          <p class="lead"></p>
+        </h1>
+                </div>
+                <div class="col-sm-5">
+                    <div class="">
+                        <div class="row">
+                            <br>
+                            <div class="col-md-12 col-sm-4 text-center">
+
+
+                                <div class="wrap">
+                                    <!-- start jtinder container -->
+                                    <div id="tinderslide">
+                                        <ul>
+                                            <% for (var i=0; i < pets.length; i++){%>
+                                                <li class="pane<%= i %>">
+                                                    <div class="card">
+                                                    <% if (pets[i].img_url) { %>
+                                                        <img class="card-img-top img-responsive center-block" src="<%=pets[i].img_url%>" alt="No Image Available">
+                                                   <% } %>
+                                                   <% if (pets[i].img_url === null) { %>
+                                                   <img class="card-img-top img-responsive center-block" src="http://voteforverde.com/wp-content/uploads/2016/02/cat-dog-coloring-pages-gianfreda-coloring-pages-cats-and-dogs.png" alt="No Image Available"><p>Image coming soon.</p>
+                                                    <% } %>
+                                                        <div class="card-block">
+                                                            <h4 class="card-title"><%=pets[i].name%></h4>
+                                                        </div>
+                                                        <div class="card-block">
+                                                            <div class="like"></div>
+                                                            <div class="dislike"></div>
+                                                            <a href="/pets/<%=pets[i].id%>" class="card-link btn btn-primary">More Info</a>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <!--
+                                                    <div class="img"></div>
+                                                    <div>
+                                                        <%=pets[i].name%>
+                                                         </div>
+                                                    <div class="like"></div>
+                                                    <div class="dislike"></div>-->
+                                                </li>
+                                                <%}%>
+                                        </ul>
+                                    </div>
+                                    <div class="actions row">
+                                        <div class="col-sm-6">
+                                            <a href="#" class="dislike"><i class=" img-responsive"></i></a></div>
+                                        <div class="col-sm-6">
+                                            <a href="#" class="like"><i></i></a></div>
+                                    </div>
+                                    <!-- end jtinder container -->
+                                </div>
+                                <!-- end padding container -->
+
+                                <!-- jTinder trigger by buttons  -->
+                                <!--<div class="actions">
+                                    <a href="#" class="dislike"><i></i></a>
+                                    <a href="#" class="like"><i></i></a>
+                                </div>-->
+
+                            </div>
+
+                            <!-- jTinder status text  -->
+                            <div id="status"></div>
+
+
+                        </div>
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="container">
+
+
+        <hr>
+        <!-- start padding container -->
+
+
+        <div class="container" id="footer">
+            <div class="row">
+                <div class="col col-sm-12">
+
+                    <h1>Follow Us</h1>
+                    <div class="btn-group">
+                        <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+                        <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+                        <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery lib -->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <!-- transform2d lib -->
+        <script type="text/javascript" src="js/jquery.transform2d.js"></script>
+        <!-- jTinder lib -->
+        <script type="text/javascript" src="js/jquery.jTinder.js"></script>
+        <!-- jTinder initialization script -->
+        <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>
