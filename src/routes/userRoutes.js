@@ -31,20 +31,20 @@ module.exports = function(app, passport) {
     });*/
 
     app.get('/login', function(req, res) {
+        res.render('index', {
+            title: 'Profile',
+            nav: [{
+                Link: '/Pets',
+                Text: 'Pets'
+            }, {
+                Link: '/Profile',
+                Text: 'Profile'
+            }]
+        });
+    })
+
+    app.post('/login', function(req, res) {
         res.redirect('/Profile');
-        console.log('Test');
-        res.render('profile', {
-                title: 'Profile',
-                nav: [{
-                    Link: '/Pets',
-                    Text: 'Pets'
-                }, {
-                    Link: '/Profile',
-                    Text: 'Profile'
-                }]
-            }
-            //{message: 'Message Goes here'}
-        );
     });
 
     // app.get('/Signup', function(req,res){
